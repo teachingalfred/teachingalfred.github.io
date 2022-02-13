@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-25750945-3', 'auto', 'jesseTracker');
+      ga('jesseTracker.send', 'pageview');
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>EAI @ CVPR 2022 </title>
+
+    <link rel="canonical" href="https://teachingalfred.github.io/EAI">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+    <meta name="twitter:title" content="TEACh">
+    <meta name="og:title" content="TEACh">
+    
+    <meta name="description" content="Task-driven Embodied Agents that Chat">
+    <meta name="twitter:description" content="Task-driven Embodied Agents that Chat">
+    <meta property="og:description" content="Task-driven Embodied Agents that Chat">
+
+    <meta property="og:image" content="https://teachingalfred.github.io/images/teach_teaser.jpg">
+    <meta name="twitter:image" content="https://teachingalfred.github.io/images/teach_teaser.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <meta property="twitter:image:width" content="1200">
+    <meta property="twitter:image:height" content="750">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="750">
+
+    <script>
+      /**
+      * Function that captures a click on an outbound link in Analytics.
+      * This function takes a valid URL string as an argument, and uses that URL string
+      * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+      * using 'navigator.sendBeacon' in browser that support it.
+       */
+        var captureOutboundLink = function(url) {
+          ga('jesseTracker.send', 'event', 'outbound', 'click', url, {
+            'transport': 'beacon'
+          });
+          return false;
+        }
+    </script>
+
+    <style>
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    #leaderboard 
+    {
+      width:500;
+      height:400;
+      position:absolute;
+      overflow:hidden;
+    }
+
+
+    #innerIframe
+    {
+      position:relative;
+      top:-550px;
+      left:0px;
+      width:500px;
+      height:900px;
+    }
+
+    .performanceTable tr.human-row {
+        background: #f5f5f5;
+    }
+
+    .performanceTable tr.random-row {
+        background: #fafafa;
+    }
+
+    .performanceTable {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 90%;
+        border: 1px solid #ccc;
+        background-color: #9da3bf14;
+        border-radius: 4px;
+    }
+
+    .performanceTable .institution {
+        font-style: italic;
+        font-weight: 300;
+    }
+
+    .performanceTable .date {
+        font-weight: normal;
+        background-color: #777;
+        display: inline;
+        padding: .2em .6em .3em;
+        font-size: 75%;
+        line-height: 1;
+        color: #fff;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: .25em;
+    }
+
+    .performanceTable td,
+    .performanceTable th {
+        text-align: center;
+        max-width: 250px;
+    }
+
+
+
+    table tr *:nth-child(3) {
+      border-right: 1px dashed #bfbfbf;
+      border-left: 1px dashed #bfbfbf;
+    }
+
+    table tr *:nth-child(4) {
+      border-right: 1px dashed #bfbfbf;
+      border-left: 1px dashed #bfbfbf;
+    }
+
+    table tr *:nth-child(5) {
+      border-right: 1px dashed #bfbfbf;
+      border-left: 1px dashed #bfbfbf;
+    }
+
+
+/*    table tr *:nth-child(5) {
+      border-right: 1px dashed #bfbfbf;
+    }*/
+    /*table tr td:nth-child(5) {*/
+      /*border-right: 1px dashed #bfbfbf;*/
+    /*}*/
+
+
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.3/examples/jumbotron/jumbotron.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../index.css">
+
+
+  </head>
+
+
+  <body style="padding-top: 0px;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">EAI @ CVPR 2022</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" 
+                                                   data-target="#navbars" aria-controls="navbars" 
+                                                                          aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbars">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="https://teachingalfred.github.io/" 
+              onclick="captureOutboundLink('https://teachingalfred.github.io/');">TEACh</a>
+          <a class="dropdown-item" href="https://github.com/alexa/teach" target="_blank">Data</a>
+             <a class="dropdown-item" href="https://github.com/GLAMOR-USC" target="_blank">Code for the TATC Challenge</a>
+        </div>
+      </div>
+    </nav>
+
+    <main role="main">
+
+    <!-- Main jumbotron -->
+
+    <div class="jumbotron">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+          <h1>ALFRED Challenge</h1><br><br>
+            <div class="row">
+            </div> <!-- col 7-->
+            <div class="col-md-6" align="center">
+              <img width=250 src="photos/cvpr22_logo.png">
+            </div> <!-- col 5-->
+          </div> <!-- row -->
+          <br><br>
+          We will soon be accepting submissions for the TEACh Two Agent Task Completion (TATC) <a href="https://embodied-ai.org/" target="_blank" onclick="captureOutboundLink('https://embodied-ai.org/');">Embodied AI Challenge</a>. Hand-coded, rule-based planning agents, even when attempting to handle many corner cases, achieve less than 25% success. We hope to see learning-based methods that can do much better! (Leaderboard coming soon!)<br/>
+          <br/>
+          <a href="https://github.com/GLAMOR-USC">Code, precomputed features, and AI2Thor simulator are all available for a quick start on GitHub</a>
+          <br/>
+          <br/>
+        </div> <!--col-->
+        <div class="col-md-5">
+          <!-- <h1>Deadline in <b id="date">August 5</b></h1><br> -->
+    <!--
+	  <h1>Leaderboard</h1>
+          <div id="leaderboard">
+            <a class="btn btn-primary btn-lg homeButton" id="leaderboardButtonEval" href="https://leaderboard.allenai.org/alfred/submissions/public" role="button" target="_blank" onclick="captureOutboundLink('https://leaderboard.allenai.org/alfred/submissions/public');">Leaderboard»</a>
+            <iframe src="https://leaderboard.allenai.org/alfred/submissions/public" id="innerIframe" scrolling="yes"></iframe>
+          </div>
+    --->
+        </div> <!--col-->
+      </div> <!-- row -->
+    </div>
+    </main>
+      <br>
+
+<div class="container">
+      <h2><a href="https://embodied-ai.org/" target="_blank" onclick="captureOutboundLink('https://embodied-ai.org/');">TEACh TATC Challenge @ CVPR 2022 Embodied AI Workshop</a></h2>      
+            
+    <hr>
+
+    <div class="container">
+      <br>
+        <br>
+        <div class="container">
+          <h3><b>Overview</b></h3>
+          <div class="row">
+            <div class="col-md-6">
+              <br>
+              <p> 
+              The focus of this challenge is on learning how to produce instructions for, ask and answer questions about, and carry out embodied visual tasks in a shared virtual environment. We challenge researchers to consider partner models of the world, pragmatics of instruction and question generation, barge-in communication, and instruction following from verbal and nonverbal cues. Such challenges are not captured by current datasets for embodiment [<a href="https://bringmeaspoon.org/">1</a>, <a href="https://homes.cs.washington.edu/~xkcd/papers/iqa.html">2</a>, <a href="https://embodiedqa.org/">3</a>, <a href="https://askforalfred.com/">4</a>, <a href="https://lil.nlp.cornell.edu/cerealbar/">5</a>.
+              </p>
+            </div> <!-- col 7-->
+            <div class="col-md-6">
+              <ul><b>Key Topics</b>
+                <li>Grounded Natural Language and Dialogue</li>
+                <li>Egocentric and Robotic vision</li>
+                <li>Interactive/Causal Reasoning</li>
+                <li>Learning from Demonstration</li>
+                <li>Task and Symbolic Planning</li>
+                <li>Deep Reinforcement Learning</li>
+                <li>Commonsense Reasoning</li>
+              </ul>
+            </div> <!-- col 5-->
+          </div> <!-- row -->
+        </div> <!-- container -->
+      <br>
+      <div class="container">
+          <div class="row">
+            <div class="col">
+                <table style="display: inline-block;"><tr><td>
+                <a href="https://aliang8.github.io/" target="_blank" 
+                   onclick="captureOutboundLink('https://aliang8.github.io/');">
+                   <center><img src="photos/anthony.jpeg" height=100><br>Anthony Liang</a></center>
+                </td></tr></table>
+                <table style="display: inline-block;"><tr><td>
+                <a href="https://ishikasingh.github.io/" target="_blank" 
+                   onclick="captureOutboundLink('https://ishikasingh.github.io/');">
+                   <center><img src="photos/ishika.jpeg" height=100><br>Ishika Singh</a></center>
+                </td></tr></table>
+                <table style="display: inline-block;"><tr><td>
+                <a href="https://mohitshridhar.com/" target="_blank" 
+                   onclick="captureOutboundLink('https://mohitshridhar.com/');">
+                   <center><img src="photos/mohitshridhar.png" height=100><br>Mohit Shridhar</a></center>
+                </td></tr></table>
+                <table style="display: inline-block;"><tr><td>
+                <a href="http://soyeonm.github.io/" target="_blank" 
+                   onclick="captureOutboundLink('http://soyeonm.github.io/');">
+                   <center><img src="photos/tiffanymin.jpg" height=100><br>Tiffany Min</a></center>
+                </td></tr></table>
+                <table style="display: inline-block;"><tr><td>
+                <a href="https://yonatanbisk.com/" target="_blank" 
+                   onclick="captureOutboundLink('https://yonatanbisk.com/');">
+                   <center><img src="photos/YonatanBisk.jpg" height=100><br>Yonatan Bisk</a></center>
+                </td></tr></table>
+                <table style="display: inline-block;"><tr><td>
+                <a href="https://jessethomason.com/" target="_blank" 
+                   onclick="captureOutboundLink('https://jessethomason.com/');">
+                   <center><img src="photos/jessethomason.jpg" height=100><br>Jesse Thomason</a></center>
+                </td></tr></table>
+              </div>
+            </div>
+        </div> <!-- container -->
+
+      <hr>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h4>Challenge Details</h4>
+          </br>
+          <p><b>Guidelines</b> <br>Participants are required to upload their model to  our  evaluation  server (coming soon!) with <code>[EAI22]</code> in the submission title, e.g. <i>[EAI22] Seq2seq Model</i>.   The  evaluation  server  automatically  evaluates  the models on an unseen test set.  Final numbers for the prize challenge will be frozen on Jun 12. Winning submissions will be required to submit a <b>brief (private) report of technical details</b> for validity checking. We will also <b>conduct a quick code inspection</b> to ensure that the challenge rules weren't violated (e.g. peeking at unavailable info on test scenes for either the Commander or Follower agent).</p>
+          <p><b>Dataset</b><br> The challenge is based on the <a href="https://teachingalfred.github.io/" target="_blank">TEACh Dataset</a>, which contains over 3,000 episodes of human-human dialogues for guiding a human-controlled agent to complete household chores in the <a href="https://ai2thor.allenai.org/" target="_blank">AI2THOR</a> simulator. Agents interact with environments through discrete actions with end effector click positions, and with one another via a text-chat interface.</p>
+        </div> <!-- col 5 -->
+
+        <div class="col-md-4">
+          <h4>Important Dates</h4>
+          <table>
+            <tr><td colspan=2><hr align=left width=250><b>Timeline</b></td></tr>
+            <tr><td>Challenge Opens</td><td> Feb 14</td></tr>
+            <tr><td>Leaderboard closes</td><td> Jun 12</td></tr>
+            <tr><td>Winner announcement </td><td>Jun 17</td></tr>
+          </table>
+        </div> <!-- col 5 --> 
+      </div> <!-- row -->
+    </div> <!-- container -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-11">
+          <p><b>Evaluation (Links coming soon!)</b><br> It is likely that you will submit your pre-trained Commander and Follower agents, which will be run on an evaluation server on unseen data.</p>
+          <p><b>Metric</b><br> The submissions will be ranked by Unseen Success Rate.</p>
+          <p><b>Rules</b><br> 
+          <ol>
+            <li>Include <code>[EAI22]</code> in the submission title e.g. <i>[EAI22] Seq2seq Model</i>.</li>
+            <li>Do not exploit the metadata in test-scenes: you should solve the vision-language grounding problem without misusing the metadata from THOR. For leaderboard evaluations, Follower agents should just use <b>Follower camera RGB input</b> and <b>dialogue utterances</b>. You <b>cannot use additional depth, mask, metadata info etc. from the simulator on Test Seen and Test Unseen scenes.</b> Commander agents are free to use all the metadata returned by ProgressCheck and SearchObject actions (e.g., object segmentation masks and map locations), and RGB inputs from the Commander, Follower, and Object Search cameras. Submissions that use additional info on test scenes will be disqualified. 
+            However, during training you are allowed to use additional info for auxiliary losses etc.</li>
+            <li>During evaluation, agents will be restricted to a number of maximum steps to be decided soon.</li>
+            <li>You can publish your results on the leaderboard only once every 7 days.</li>
+            <li>Do not spam the leaderboard with repeated submissions (under different email accounts) in order to optimize on the test set. Fine-tuning should be done only on the validation set. Violators will be disqualified from the challenge.</li>
+            <li>Try to solve the TEACh Two-Agent Task Completion (TATC) challenge: all submissions must be attempts to solve the TEACh TATC dataset.</li>
+            <li>Share who you are: you must provide a team name and affiliation.</li>
+            <li>(Optional) Share how you solved it: if possible, share information about how the task was solved. Link an academic paper or code repository if public.</li>
+            <li>Only submit your own work: you may evaluate any model on the validation set locally, but must only submit your own work for evaluation against the test set on the leaderboard.</li>
+          </ol>
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <hr>
+
+    <!--
+    <div class="container">
+        <div class="container">
+          <h3><b>Submissions</b></h3>
+          <br>
+          <div class="col-md-13">
+               <table class="table performanceTable box-shadow">
+                    <tbody>
+                    <tr>
+                        <th>Rank</th>
+                        <th style="min-width: 25%;">Model</th>
+                        <th style="max-width: 10%;">Unseen Success</th>
+                        <th style="max-width: 10%;">Seen Success</th>
+                        <th style="max-width: 10%;">Unseen PLW</th>
+                        <th style="max-width: 10%;">Seen PLW</th>
+                    </tr>
+                    <tr class="human-row">
+                        <td></td>
+                        <td>Human Performance<p class="institution">University of Washington</p><a
+                                href="https://arxiv.org/abs/1912.01734" target="_blank" >(Shridhar et al. '20)</a></td>
+                        <td>91.0</td>
+                        <td>-</td>
+                        <td>87.6</td>
+                        <td>-</td>
+                    </tr>
+<tr><td><p>-</p><span class="date">28 Mar, 2020</span></td><td>Seq2seq Baseline<p class="institution">University of Washington</p><a class="link" target="_blank"  href="https://github.com/askforalfred/alfred">github.com/askforalfred/alfred</a></td><td>0.4</td><td>4.0</td><td>0.0</td><td>2.0</td></tr>
+                    </tbody>
+                </table>
+          </div> 
+        </div>
+        <br>
+    </div>
+    <hr>
+    -->
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-11">
+          <h4>FAQ</h4>
+            <ul>
+              <li><b>Do you need to submit a report?</b> <br>Winning submissions will be required to submit a brief (private) report of technical details for validity checking. Also consider submitting a workshop paper to EAI by TBD. See <a href="https://embodied-ai.org/" target="_blank">submission guidelines for EAI</a>.</li><br>
+              <li><b>Is there a prize for the winner?</b><br>TBD</li><br>
+            </ul>
+          </h4>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+    <footer class="container">
+      <p>Questions or issues?  Contact <a href="mailto:teachingalfred@gmail.com">teachingalfred@gmail.com</a></p>
+    </footer>
+  </body>
+</html>
+
