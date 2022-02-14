@@ -6,13 +6,7 @@
     top: -1px;
     right: 0px;
     left: 0px;
-    background-color: #fee3ff;
-    color: #000000;
-}
-
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-    background-color: #fee3ff !important;
-    color: #000000;
+    background-color: #f0ad4e;
 }
 
 .groupLogo {
