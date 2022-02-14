@@ -199,22 +199,20 @@
       <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-5">
-          <h1>ALFRED Challenge</h1><br><br>
-            <div class="row">
-            </div> <!-- col 7-->
-            <div class="col-md-6" align="center">
-              <img width=250 src="photos/cvpr22_logo.png">
-            </div> <!-- col 5-->
-          </div> <!-- row -->
-          <br><br>
+          <h1>TEACh Two-Agent Task Completion (TATC) Challenge</h1><br><br>
+        </div>
+        <div class="col-md-5" align="center">
+          <img width=250 src="photos/cvpr22_logo.png">
+        </div>
+        <div class="col-md-1"></div>
+      </div> <!-- row -->
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10"></div>
           We will soon be accepting submissions for the TEACh Two Agent Task Completion (TATC) <a href="https://embodied-ai.org/" target="_blank" onclick="captureOutboundLink('https://embodied-ai.org/');">Embodied AI Challenge</a>. Hand-coded, rule-based planning agents, even when attempting to handle many corner cases, achieve less than 25% success. We hope to see learning-based methods that can do much better! (Leaderboard coming soon!)<br/>
           <br/>
           <a href="https://github.com/GLAMOR-USC">Code, precomputed features, and AI2Thor simulator are all available for a quick start on GitHub</a>
-          <br/>
-          <br/>
-        </div> <!--col-->
-        <div class="col-md-5">
-          <!-- <h1>Deadline in <b id="date">August 5</b></h1><br> -->
+        <div class="col-md-1"></div>
     <!--
 	  <h1>Leaderboard</h1>
           <div id="leaderboard">
@@ -222,9 +220,8 @@
             <iframe src="https://leaderboard.allenai.org/alfred/submissions/public" id="innerIframe" scrolling="yes"></iframe>
           </div>
     --->
-        </div> <!--col-->
-      </div> <!-- row -->
-    </div>
+    </div> <!-- row -->
+    </div> <!-- jumbotron -->
     </main>
       <br>
 
@@ -242,7 +239,7 @@
             <div class="col-md-6">
               <br>
               <p> 
-              The focus of this challenge is on learning how to produce instructions for, ask and answer questions about, and carry out embodied visual tasks in a shared virtual environment. We challenge researchers to consider partner models of the world, pragmatics of instruction and question generation, barge-in communication, and instruction following from verbal and nonverbal cues. Such challenges are not captured by current datasets for embodiment [<a href="https://bringmeaspoon.org/">1</a>, <a href="https://homes.cs.washington.edu/~xkcd/papers/iqa.html">2</a>, <a href="https://embodiedqa.org/">3</a>, <a href="https://askforalfred.com/">4</a>, <a href="https://lil.nlp.cornell.edu/cerealbar/">5</a>.
+              This challenge focuses on how to produce instructions for, ask and answer questions about, and carry out embodied visual tasks in a shared virtual environment. We challenge researchers to consider partner models of the world, pragmatics of instruction and question generation, barge-in communication, and instruction following from verbal and nonverbal cues. Such challenges are not captured by current datasets for embodiment [<a href="https://bringmeaspoon.org/">1</a>, <a href="https://homes.cs.washington.edu/~xkcd/papers/iqa.html">2</a>, <a href="https://embodiedqa.org/">3</a>, <a href="https://askforalfred.com/">4</a>, <a href="https://lil.nlp.cornell.edu/cerealbar/">5</a>].
               </p>
             </div> <!-- col 7-->
             <div class="col-md-6">
@@ -303,7 +300,7 @@
         <div class="col-md-6">
           <h4>Challenge Details</h4>
           </br>
-          <p><b>Guidelines</b> <br>Participants are required to upload their model to  our  evaluation  server (coming soon!) with <code>[EAI22]</code> in the submission title, e.g. <i>[EAI22] Seq2seq Model</i>.   The  evaluation  server  automatically  evaluates  the models on an unseen test set.  Final numbers for the prize challenge will be frozen on Jun 12. Winning submissions will be required to submit a <b>brief (private) report of technical details</b> for validity checking. We will also <b>conduct a quick code inspection</b> to ensure that the challenge rules weren't violated (e.g. peeking at unavailable info on test scenes for either the Commander or Follower agent).</p>
+          <p><b>Guidelines</b> <br>Participants are required to upload their model to  our  evaluation  server (coming soon!) with <code>[EAI22]</code> in the submission title, e.g., <i>[EAI22] Seq2seq Model</i>.   The  evaluation  server  automatically  evaluates  the models on an unseen test set.  Final numbers for the prize challenge will be frozen on Jun 12. Winning submissions will be required to submit a <b>brief (private) report of technical details</b> for validity checking. We will also <b>conduct a quick code inspection</b> to ensure that the challenge rules weren't violated (e.g., peeking at unavailable info on test scenes for either the Commander or Follower agent).</p>
           <p><b>Dataset</b><br> The challenge is based on the <a href="https://teachingalfred.github.io/" target="_blank">TEACh Dataset</a>, which contains over 3,000 episodes of human-human dialogues for guiding a human-controlled agent to complete household chores in the <a href="https://ai2thor.allenai.org/" target="_blank">AI2THOR</a> simulator. Agents interact with environments through discrete actions with end effector click positions, and with one another via a text-chat interface.</p>
         </div> <!-- col 5 -->
 
@@ -325,7 +322,7 @@
           <p><b>Metric</b><br> The submissions will be ranked by Unseen Success Rate.</p>
           <p><b>Rules</b><br> 
           <ol>
-            <li>Include <code>[EAI22]</code> in the submission title e.g. <i>[EAI22] Seq2seq Model</i>.</li>
+            <li>Include <code>[EAI22]</code> in the submission title e.g., <i>[EAI22] Seq2seq Model</i>.</li>
             <li>Do not exploit the metadata in test-scenes: you should solve the vision-language grounding problem without misusing the metadata from THOR. For leaderboard evaluations, Follower agents should just use <b>Follower camera RGB input</b> and <b>dialogue utterances</b>. You <b>cannot use additional depth, mask, metadata info etc. from the simulator on Test Seen and Test Unseen scenes.</b> Commander agents are free to use all the metadata returned by ProgressCheck and SearchObject actions (e.g., object segmentation masks and map locations), and RGB inputs from the Commander, Follower, and Object Search cameras. Submissions that use additional info on test scenes will be disqualified. 
             However, during training you are allowed to use additional info for auxiliary losses etc.</li>
             <li>During evaluation, agents will be restricted to a number of maximum steps to be decided soon.</li>

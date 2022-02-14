@@ -111,11 +111,11 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Compete</a>
             <div class="dropdown-menu">
-              <div class="dropdown-item">Leaderboard (Coming soon!) </div>
+              <a class="dropdown-item" href="#">Leaderboard (Coming soon!)</a>
               <a class="dropdown-item" href="EAI22">CVPR EAI 2022 Challenge</a>
             </div>
           </li>
-         <a class="nav-item nav-link" href="https://askforalfred.com" onclick="captureOutboundLink('https://askforalfred.com');">ALFRED</a>
+         <a class="nav-item nav-link" href="https://askforalfred.com" onclick="captureOutboundLink('https://askforalfred.com');" target="_blank">ALFRED</a>
         </div>
       </div>
     </nav>
@@ -127,26 +127,27 @@
     <div class="container">
       <h1 class="display-3">TEACh</h1>
       <h3>Task-driven Embodied Agents that Chat</h3>
+      <h6>
       <table>
-      <h5>
       <tr>
         <td width=200><a href="https://aishwaryap.github.io/" target="_blank" onclick="captureOutboundLink('https://aishwaryap.github.io/');">Aishwarya Padmakumar</a></td>
         <td width=200><a href="https://jessethomason.com/" target="_blank" onclick="captureOutboundLink('https://jessethomason.com/');">Jesse Thomason</a></td>
         <td width=200><a href="https://www.ayshrv.com/" target="_blank" onclick="captureOutboundLink('https://www.ayshrv.com/');">Ayush Shrivastava</a></td>
       </tr>
-      </h5><h6>
       <tr>
         <td width=200><a href="https://www.linkedin.com/in/langep/" target="_blank" onclick="captureOutboundLink('https://www.linkedin.com/in/langep/');">Patrick Lange</a></td>
         <td><a href="https://www.linkedin.com/in/anjaliync/" target="_blank" onclick="captureOutboundLink('https://www.linkedin.com/in/anjaliync/');">Anjali Narayan-Chen</a></td>
         <td><a href="https://www.linkedin.com/in/spandana-gella-313b7019/" target="_blank" onclick="captureOutboundLink('https://www.linkedin.com/in/spandana-gella-313b7019/');">Spandana Gella</a></td>
+      </tr>
+      <tr>
         <td><a href="https://www.linkedin.com/in/rpiramuthu/" target="_blank" onclick="captureOutboundLink('https://www.linkedin.com/in/rpiramuthu/');">Robinson Piramithu</a></td>
         <td><a href="https://www.linkedin.com/in/gokhan-tur-3294953/" target="_blank" onclick="captureOutboundLink('https://www.linkedin.com/in/gokhan-tur-3294953/');">Gokhan Tur</a></td>
         <td><a href="https://www.linkedin.com/in/dilek-hakkani-tur-9517543/" target="_blank" onclick="captureOutboundLink('https://www.linkedin.com/in/dilek-hakkani-tur-9517543/');">Dilek Hakkani-Tur</a></td>
         <br>
       </tr>
-      </h6>
       </table>
-
+      </h6>
+      
       <p> <b>TEACH</b> (<b>T</b>ask-drive <b>E</b>mbodied <b>A</b>gents that <b>Ch</b>at) is a set of episodes in which a human Commander who knows what task needs to be accomplished and where objects in a scene are located works with a human Follower who controls a virtual agent in the scene to accomplish household chores. The Commander and Follower communicate via natural language text. TEACh enables researchers to study strategies for natural language cooperation, instruction following from egocentric vision, question and answer generation, and partner modeling. We believe these skills will be necessary for real-world language-driven robotics applications.</p>
       <p>
         <a class="btn btn-primary btn-lg homeButton" href="https://arxiv.org/abs/2110.00534" 
@@ -155,14 +156,14 @@
             role="button" target="_blank" onclick="captureOutboundLink('https://github.com/GLAMOR-USC');">GitHub&raquo;</a>
         <a class="btn btn-primary btn-lg homeButton" href="https://ai2thor.allenai.org/demo"
             role="button" target="_blank" onclick="captureOutboundLink('https://ai2thor.allenai.org/demo');">Simulator&raquo;</a>
-        <div class="btn btn-danger btn-lg homeButton" role="button" >Leaderboard (Coming Soon)</div></p>
+        <a class="btn btn-danger btn-lg homeButton" role="button" href="#">Leaderboard (Coming Soon)</a></p>
       </p>
 
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-6 d-flex justify-content-right">
       <!-- Raw dim 636x872 -->
-     <img width="300" height="400" src="images/teach_vertical.png">
+     <img width="600" height="800" src="images/teach_vertical.png">
     </div>
     <div class="col-sm-6 d-flex justify-content-left">
       <div class="card bg-light">
@@ -200,7 +201,7 @@
     <div>
       <table class="table table-striped">
       <tr><td colspan=3>
-        <center>Follower Camera View<br/>
+        <center><b>Follower</b> Camera View<br/>
           <video width="320" height="240" controls id="expert_video" type="video/mp4" src="videos/boil_potato.mp4">
         Your browser does not support the video tag.
         </video></center>
